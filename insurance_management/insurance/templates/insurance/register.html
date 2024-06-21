@@ -1,0 +1,35 @@
+{% extends 'insurance/base.html' %}
+
+{% block title %}Register Policy Holder{% endblock %}
+
+{% block content %}
+<h2>Register Policy Holder</h2>
+<div class="form-container">
+    <form id="registrationForm" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="button">Register</button>
+    </form>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#registrationForm').on('submit', function(event) {
+            event.preventDefault();
+            $.ajax({
+                type: 'POST',
+                url: '{% url "register_policy_holder" %}',
+                data: $(this).serialize(),
+                success: function(response) {
+                    alert('Registration successful!');
+                    window.location.href = '{% url "home" %}';
+                },
+                error: function(response) {
+                    alert('Registration failed. Please try again.');
+                }
+            });
+        });
+    });
+</script>
+{% endblock %}

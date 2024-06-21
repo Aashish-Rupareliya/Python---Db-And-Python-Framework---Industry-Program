@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Insurance Management{% endblock %}</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            flex: 1;
+        }
+
+        header {
+            background: #333;
+            color: #fff;
+            padding-top: 30px;
+            min-height: 70px;
+            border-bottom: #77aaff 3px solid;
+        }
+
+        header a {
+            color: #fff;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 16px;
+        }
+
+        header ul {
+            padding: 0;
+            list-style: none;
+        }
+
+        header ul li {
+            display: inline;
+            padding: 0 20px 0 20px;
+        }
+
+        h1, h2, h3 {
+            color: #333;
+        }
+
+        .button {
+            display: inline-block;
+            border: none;
+            background: #77aaff;
+            color: #fff;
+            padding: 10px 20px;
+            cursor: pointer;
+            margin-top: 10px;
+            text-transform: uppercase;
+            text-align: center;
+        }
+
+        .button:hover {
+            background: #555;
+        }
+
+        .form-container {
+            background: #fff;
+            padding: 30px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 30px;
+        }
+
+        input[type="text"], input[type="email"], textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+        }
+
+        .footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            margin-top: auto;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Insurance Management System</h1>
+            <nav>
+                <ul>
+                    <li><a href="{% url 'home' %}">Home</a></li>
+                    <li><a href="{% url 'register_policy_holder' %}">Register</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <div class="container">
+        {% block content %}
+        {% endblock %}
+    </div>
+    <footer class="footer">
+        <p>&copy; 2024 Insurance Management System</p>
+    </footer>
+</body>
+</html>
